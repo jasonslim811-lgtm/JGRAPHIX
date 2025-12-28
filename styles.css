@@ -10,8 +10,18 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: url('images/background.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #333;
+  color: #fff;
   scroll-behavior: smooth;
+  position: relative;
+}
+
+/* ===== DARK OVERLAY ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6); /* adjust darkness here (0.6 = 60% dark) */
+  z-index: -1;
 }
 
 /* ===== HEADER ===== */
@@ -66,7 +76,7 @@ header {
 
 /* ===== HERO ===== */
 .hero {
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
               url('images/hero-bg.jpg') no-repeat center center/cover;
   height: 100vh;
   display: flex;
@@ -119,11 +129,13 @@ header {
 .section {
   padding: 4rem 2rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(0,0,0,0.5); /* dark semi-transparent overlay */
+  color: #fff;
 }
 
 .section.light {
-  background: rgba(224, 242, 241, 0.95);
+  background: rgba(0,0,0,0.3);
+  color: #fff;
 }
 
 /* ===== SCROLL ANIMATION ===== */
