@@ -16,10 +16,7 @@ body{
   background:#fff;
   transition:0.4s;
 }
-.dark{
-  background:#111;
-  color:#eee;
-}
+.dark{background:#111;color:#eee;}
 
 /* ===== LOADER ===== */
 #loader{
@@ -49,22 +46,11 @@ header{
   padding:15px 25px;
 }
 .logo{font-weight:bold;font-size:22px;}
-.menu-btn{
-  display:none;
-  font-size:22px;
-  cursor:pointer;
-}
-.nav-links{
-  display:flex;
-  list-style:none;
-  gap:20px;
-}
-.nav-links a{
-  color:white;
-  text-decoration:none;
-}
+.menu-btn{display:none;font-size:22px;cursor:pointer;}
+.nav-links{display:flex;list-style:none;gap:20px;}
+.nav-links a{color:white;text-decoration:none;}
 
-/* ===== HERO VIDEO ===== */
+/* ===== HERO ===== */
 .hero{
   position:relative;
   height:90vh;
@@ -86,20 +72,10 @@ header{
   padding:40px;
   border-radius:10px;
 }
-.hero h1{
-  font-size:40px;
-  animation:heroFade 1.2s forwards;
-}
-.hero p{
-  opacity:0;
-  animation:heroFade 1.2s forwards;
-  animation-delay:.3s;
-}
-.hero .btn{
-  opacity:0;
-  animation:heroFade 1.2s forwards, pulse 2s infinite;
-  animation-delay:.6s;
-}
+.hero h1{font-size:40px;animation:heroFade 1.2s forwards;}
+.hero p{opacity:0;animation:heroFade 1.2s forwards .3s;}
+.hero .btn{opacity:0;animation:heroFade 1.2s forwards .6s, pulse 2s infinite;}
+
 @keyframes heroFade{
   from{opacity:0;transform:translateY(40px);}
   to{opacity:1;transform:translateY(0);}
@@ -122,33 +98,23 @@ header{
 }
 
 /* ===== SECTIONS ===== */
-.section{
-  padding:60px 20px;
-  text-align:center;
-}
+.section{padding:60px 20px;text-align:center;}
 .light{background:#f4f4f4;}
 .dark .light{background:#222;}
 
-/* ===== SCROLL ANIMATION ===== */
-.fade-in{
-  opacity:0;
-  transform:translateY(30px);
-  transition:.8s;
-}
-.fade-in.show{
-  opacity:1;
-  transform:translateY(0);
-}
+/* ===== SCROLL ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:.8s;}
+.fade-in.show{opacity:1;transform:translateY(0);}
 
-/* ===== GALLERY ===== */
-.gallery{
+/* ===== IMAGE GRID ===== */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
   max-width:1100px;
   margin:30px auto;
 }
-.gallery img{
+.grid img{
   width:100%;
   height:220px;
   object-fit:cover;
@@ -156,8 +122,19 @@ header{
   cursor:pointer;
   transition:.3s;
 }
-.gallery img:hover{
-  transform:scale(1.05);
+.grid img:hover{transform:scale(1.05);}
+
+/* ===== VIDEO GRID ===== */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:30px auto;
+}
+.video-grid video{
+  width:100%;
+  border-radius:10px;
 }
 
 /* ===== LIGHTBOX ===== */
@@ -170,10 +147,7 @@ header{
   align-items:center;
   z-index:9999;
 }
-#lightbox img{
-  max-width:90%;
-  max-height:90%;
-}
+#lightbox img{max-width:90%;max-height:90%;}
 .close{
   position:absolute;
   top:20px;
@@ -183,16 +157,9 @@ header{
   cursor:pointer;
 }
 
-/* ===== CONTACT FORM ===== */
-form{
-  max-width:500px;
-  margin:auto;
-}
-input,textarea{
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-}
+/* ===== FORM ===== */
+form{max-width:500px;margin:auto;}
+input,textarea{width:100%;padding:10px;margin:10px 0;}
 
 /* ===== FOOTER ===== */
 footer{
@@ -201,11 +168,7 @@ footer{
   text-align:center;
   padding:20px;
 }
-.social a{
-  color:white;
-  margin:0 10px;
-  font-size:20px;
-}
+.social a{color:white;margin:0 10px;font-size:20px;}
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
@@ -234,8 +197,9 @@ footer{
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
   <ul class="nav-links" id="menu">
     <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
+    <li><a href="#graphic">Graphic</a></li>
+    <li><a href="#photo">Photography</a></li>
+    <li><a href="#video">Video</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a onclick="toggleDark()">🌙</a></li>
   </ul>
@@ -253,18 +217,32 @@ footer{
 </div>
 </section>
 
-<section class="section fade-in" id="about">
-<h2>About</h2>
-<p>I create powerful visuals through design, photography, and video.</p>
+<section class="section fade-in" id="graphic">
+<h2>Graphic Design</h2>
+<div class="grid">
+<img src="images/graphic1.jpg" onclick="openLightbox(this)">
+<img src="images/graphic2.jpg" onclick="openLightbox(this)">
+<img src="images/graphic3.jpg" onclick="openLightbox(this)">
+<img src="images/graphic4.jpg" onclick="openLightbox(this)">
+</div>
 </section>
 
-<section class="section light fade-in" id="work">
-<h2>Portfolio</h2>
-<div class="gallery">
-<img src="images/gallery1.jpg" onclick="openLightbox(this)">
-<img src="images/gallery2.jpg" onclick="openLightbox(this)">
-<img src="images/gallery3.jpg" onclick="openLightbox(this)">
-<img src="images/gallery4.jpg" onclick="openLightbox(this)">
+<section class="section light fade-in" id="photo">
+<h2>Photography</h2>
+<div class="grid">
+<img src="images/photo1.jpg" onclick="openLightbox(this)">
+<img src="images/photo2.jpg" onclick="openLightbox(this)">
+<img src="images/photo3.jpg" onclick="openLightbox(this)">
+<img src="images/photo4.jpg" onclick="openLightbox(this)">
+</div>
+</section>
+
+<section class="section fade-in" id="video">
+<h2>Videography</h2>
+<div class="video-grid">
+<video controls src="videos/video1.mp4"></video>
+<video controls src="videos/video2.mp4"></video>
+<video controls src="videos/video3.mp4"></video>
 </div>
 </section>
 
@@ -273,7 +251,7 @@ footer{
 <img id="lightbox-img">
 </div>
 
-<section class="section fade-in" id="contact">
+<section class="section light fade-in" id="contact">
 <h2>Contact</h2>
 <form action="https://formspree.io/f/yourID" method="POST">
 <input type="text" name="name" placeholder="Your Name" required>
@@ -294,33 +272,16 @@ footer{
 </footer>
 
 <script>
-/* Loader */
 window.onload=()=>document.getElementById("loader").style.display="none";
-
-/* Menu */
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("show");
-}
-
-/* Dark Mode */
-function toggleDark(){
-  document.body.classList.toggle("dark");
-}
-
-/* Lightbox */
+function toggleMenu(){menu.classList.toggle("show");}
+function toggleDark(){document.body.classList.toggle("dark");}
 function openLightbox(img){
-  document.getElementById("lightbox").style.display="flex";
+  lightbox.style.display="flex";
   document.getElementById("lightbox-img").src=img.src;
 }
-function closeLightbox(){
-  document.getElementById("lightbox").style.display="none";
-}
-
-/* Scroll animation */
+function closeLightbox(){lightbox.style.display="none";}
 const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting)e.target.classList.add("show");
-  });
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show");});
 });
 document.querySelectorAll(".fade-in").forEach(el=>observer.observe(el));
 </script>
